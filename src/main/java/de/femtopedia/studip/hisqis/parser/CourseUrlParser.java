@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import oauth.signpost.OAuth;
 import oauth.signpost.exception.OAuthException;
-import org.apache.http.util.TextUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -24,7 +24,7 @@ public class CourseUrlParser {
 			if (!content.hasClass("content"))
 				continue;
 			for (Element element : content.select("a")) {
-				if (!TextUtils.isEmpty(element.attr("title"))) {
+				if (!OAuth.isEmpty(element.attr("title"))) {
 					list.add(element.attr("href"));
 				}
 			}

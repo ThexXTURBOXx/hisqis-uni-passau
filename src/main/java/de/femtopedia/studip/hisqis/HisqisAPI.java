@@ -5,7 +5,6 @@ import de.femtopedia.studip.hisqis.parser.CourseUrlParser;
 import de.femtopedia.studip.hisqis.parser.StudentParser;
 import de.femtopedia.studip.shib.CustomAccessHttpResponse;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.util.List;
 import lombok.Getter;
@@ -25,17 +24,7 @@ public class HisqisAPI {
 	 * Initializes a new default {@link HisqisAPI} instance.
 	 */
 	public HisqisAPI() {
-		this(null, "");
-	}
-
-	/**
-	 * Initializes a new {@link HisqisAPI} instance with a custom KeyStore.
-	 *
-	 * @param keyStore A custom KeyStore as {@link InputStream} to set or null
-	 * @param password The KeyStore's password
-	 */
-	public HisqisAPI(InputStream keyStore, String password) {
-		this.hisqisClient = new HisqisClient(keyStore, password);
+		this.hisqisClient = new HisqisClient();
 	}
 
 	/**
@@ -65,20 +54,11 @@ public class HisqisAPI {
 	 */
 	public CustomAccessHttpResponse get(String url)
 			throws IOException, IllegalArgumentException, IllegalAccessException, OAuthException {
-		if (url.startsWith("http"))
-			return this.hisqisClient.get(url);
 		return this.hisqisClient.get(BASE_URL + url);
 	}
 
 	public String getAsi() {
 		return this.hisqisClient.getAsi();
-	}
-
-	/**
-	 * Shuts down the {@link HisqisClient}.
-	 */
-	public void shutdown() {
-		this.hisqisClient.shutdown();
 	}
 
 	public List<String> getCourses() throws IllegalAccessException, IOException, OAuthException {

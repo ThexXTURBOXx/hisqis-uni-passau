@@ -3,7 +3,7 @@ package de.femtopedia.studip.hisqis.parser;
 import de.femtopedia.studip.hisqis.parsed.Category;
 import java.util.ArrayList;
 import lombok.NoArgsConstructor;
-import org.apache.http.util.TextUtils;
+import oauth.signpost.OAuth;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -20,7 +20,7 @@ public class CategoryParser {
 		return new Category(
 				Integer.parseInt(cells[0]),
 				cells[1],
-				TextUtils.isEmpty(f) ? 0 : Float.parseFloat(f),
+				OAuth.isEmpty(f) ? 0 : Float.parseFloat(f),
 				Integer.parseInt(cells[4].replace(",0", "")),
 				new ArrayList<>());
 	}
