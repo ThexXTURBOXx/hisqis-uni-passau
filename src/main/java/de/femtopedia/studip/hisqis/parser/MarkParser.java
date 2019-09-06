@@ -3,6 +3,7 @@ package de.femtopedia.studip.hisqis.parser;
 import de.femtopedia.studip.hisqis.parsed.Mark;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Locale;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -18,7 +19,7 @@ public class MarkParser {
 				Integer.parseInt(cells[5].replace(",0", "")),
 				cells[6],
 				Integer.parseInt(cells[7]),
-				DateFormat.getDateInstance().parse(cells[8]));
+				DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.GERMANY).parse(cells[8]));
 	}
 
 }
