@@ -44,19 +44,19 @@
         <dependency>
             <groupId>de.femtopedia.studip</groupId>
             <artifactId>shib-uni-passau</artifactId>
-            <version>1.6</version>
+            <version>1.8-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.11.3</version>
+            <version>1.12.2</version>
         </dependency>
     </dependencies>
 
