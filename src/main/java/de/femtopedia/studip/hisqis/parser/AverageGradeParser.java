@@ -6,9 +6,9 @@ import org.jsoup.select.Elements;
 @NoArgsConstructor
 public class AverageGradeParser {
 
-	public float parse(Elements columns) {
-		return Float.parseFloat(columns.get(2).text()
-				.replace(",", "."));
-	}
+    public float parse(Elements columns) {
+        return Float.parseFloat(columns.get(2).text()
+                .replace(",", "."));
+    }
 
 }

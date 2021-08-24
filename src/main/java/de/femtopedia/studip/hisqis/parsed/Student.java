@@ -5,11 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString(exclude = "courses")
 @Getter
 @AllArgsConstructor
+@ToString(exclude = "courses")
 public class Student {
 
-	private final List<CourseOfStudy> courses;
+    private final List<CourseOfStudy> courses;
 
 }

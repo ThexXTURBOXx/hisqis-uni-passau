@@ -5,15 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString(exclude = "accounts")
 @Getter
 @AllArgsConstructor
+@ToString(exclude = "accounts")
 public class Category {
 
-	private final int number;
-	private final String subject;
-	private final float grade;
-	private final int ects;
-	private final List<Account> accounts;
+    private final int number;
+    private final String subject;
+    private final float grade;
+    private final int ects;
+    private final List<Account> accounts;
 
 }

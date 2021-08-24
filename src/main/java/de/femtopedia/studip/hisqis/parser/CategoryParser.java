@@ -10,19 +10,19 @@ import org.jsoup.select.Elements;
 @NoArgsConstructor
 public class CategoryParser {
 
-	public Category parse(Elements columns) {
-		String[] cells = new String[9];
-		int i = 0;
-		for (Element col : columns) {
-			cells[i++] = col.text();
-		}
-		String f = cells[2].replace(",", ".");
-		return new Category(
-				Integer.parseInt(cells[0]),
-				cells[1],
-				OAuth.isEmpty(f) ? 0 : Float.parseFloat(f),
-				Integer.parseInt(cells[4].replace(",0", "")),
-				new ArrayList<>());
-	}
+    public Category parse(Elements columns) {
+        String[] cells = new String[9];
+        int i = 0;
+        for (Element col : columns) {
+            cells[i++] = col.text();
+        }
+        String f = cells[2].replace(",", ".");
+        return new Category(
+                Integer.parseInt(cells[0]),
+                cells[1],
+                OAuth.isEmpty(f) ? 0 : Float.parseFloat(f),
+                Integer.parseInt(cells[4].replace(",0", "")),
+                new ArrayList<>());
+    }
 
 }

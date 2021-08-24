@@ -13,14 +13,14 @@ import oauth.signpost.exception.OAuthException;
 @RequiredArgsConstructor
 public class StudentParser {
 
-	private final HisqisAPI api;
+    private final HisqisAPI api;
 
-	public Student parse() throws IOException, IllegalAccessException, OAuthException, ParseException {
-		List<CourseOfStudy> courses = new ArrayList<>();
-		for (String course : api.getCourses()) {
-			courses.add(new CurseOfStudyParser(api.getHisqisClient()).parse(course));
-		}
-		return new Student(courses);
-	}
+    public Student parse() throws IOException, IllegalAccessException, OAuthException, ParseException {
+        List<CourseOfStudy> courses = new ArrayList<>();
+        for (String course : api.getCourses()) {
+            courses.add(new CurseOfStudyParser(api.getHisqisClient()).parse(course));
+        }
+        return new Student(courses);
+    }
 
 }

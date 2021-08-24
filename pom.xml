@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -35,7 +36,7 @@
             <name>Nico Mexis</name>
             <email>nico.mexis@kabelmail.de</email>
             <organization>femtopedia</organization>
-            <organizationUrl>http://www.femtopedia.de</organizationUrl>
+            <organizationUrl>https://www.femtopedia.de</organizationUrl>
             <roles>
                 <role>Project-Administrator</role>
                 <role>Developer</role>
@@ -48,13 +49,12 @@
         <dependency>
             <groupId>de.femtopedia.studip</groupId>
             <artifactId>shib-uni-passau</artifactId>
-            <version>1.8.1</version>
-            <scope>compile</scope>
+            <version>1.9</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -94,14 +94,17 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadoc</id>
@@ -127,12 +130,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.1.2</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>8.31</version>
+                        <version>8.45.1</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -164,12 +167,12 @@
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
                         <artifactId>maven-scm-api</artifactId>
-                        <version>1.11.2</version>
+                        <version>1.11.3</version>
                     </dependency>
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
                         <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.11.2</version>
+                        <version>1.11.3</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -200,6 +203,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
